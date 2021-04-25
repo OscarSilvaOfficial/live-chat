@@ -9,8 +9,8 @@ class Fabric {
 
   buildServer() {
 
-    return this.buildApp().listen(3000, () => {
-      console.log("Run at port 3000")
+    return this.buildApp().listen(5000, () => {
+      console.log("Run at port 5000")
     })    
 
   }

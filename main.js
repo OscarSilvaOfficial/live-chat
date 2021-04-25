@@ -5,14 +5,16 @@ const f = new Fabric()
 
 export const server = f.buildServer()
 
-const io = new socket.Server(server)
+const io = new socket.Server(server, {
+  cors: {
+    origin: "*"
+  }
+})
 
 io.on('connection', socket => {
   console.log(`Requisição do socket ${socket.id}`)
 
   socket.on('sendMessage', msg => {
-    console.log(msg)
+    socket.broadcast.emit('receivedMessage', msg)
   })
 })
-  
-
