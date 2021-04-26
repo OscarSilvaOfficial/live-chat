@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import env from '../config/env.js'
 
 class Fabric {
 
@@ -9,8 +10,8 @@ class Fabric {
 
   buildServer() {
 
-    return this.buildApp().listen(5000, () => {
-      console.log("Run at port 5000")
+    return this.buildApp().listen(env.PORT, () => {
+      console.log(`Run at port ${env.PORT}`)
     })    
 
   }
